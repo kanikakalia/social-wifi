@@ -54,6 +54,8 @@
 
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" type="text/css" hrf="js/plugin/bubble-chart/jquery.jqplot.min.css" />
 	</head>
 	<body class="">
 		<!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
@@ -665,10 +667,9 @@
 
 					<div class="row">
 
-						<article class="col-sm-12 col-md-12 col-lg-6">
-
+						<article class="col-sm-12 col-md-12 col-lg-8">
 							<!-- new widget -->
-							<div class="jarviswidget " id="" data-widget-editbutton="false" data-widget-fullscreenbutton="false">
+							<div class="jarviswidget jarviswidget-color-blueDark" id="" data-widget-editbutton="false" data-widget-fullscreenbutton="false">
 
 								<!-- widget options:
 								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
@@ -686,7 +687,57 @@
 
 								<header>
 									<span class="widget-icon"> <i class="fa fa-pie-chart txt-color-white"></i> </span>
-									<h2> Login Graph  </h2>
+									<h2>Popular FQDN </h2>
+									
+								</header>
+
+								<!-- widget div-->
+								<div>
+									<!-- widget edit box -->
+									
+									<!-- end widget edit box -->
+
+									<div class="widget-body widget-hide-overflow no-padding">
+										<!-- content goes here -->
+
+										<!-- <div id="donut-graph" class="chart no-padding"></div> -->
+										<!--<div id="pie-chart" class="chart"></div> -->
+										<div id="chart1" style="height: 300px; width: 98%;"></div>
+
+
+										<!-- end content -->
+									</div>
+
+								</div>
+								<!-- end widget div -->
+							</div>
+							<!-- end widget -->
+
+
+
+						</article>
+
+						<article class="col-sm-12 col-md-12 col-lg-4">
+							<!-- new widget -->
+							<div class="jarviswidget jarviswidget-color-blueDark" id="" data-widget-editbutton="false" data-widget-fullscreenbutton="false">
+
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+
+								-->
+
+								<header>
+									<span class="widget-icon"> <i class="fa fa-pie-chart txt-color-white"></i> </span>
+									<h2> Popular Categories </h2>
 									
 								</header>
 
@@ -701,6 +752,63 @@
 
 										<!-- <div id="donut-graph" class="chart no-padding"></div> -->
 										<div id="pie-chart" class="chart"></div>
+										
+
+										<!-- end content -->
+									</div>
+
+								</div>
+								<!-- end widget div -->
+							</div>
+							<!-- end widget -->
+
+							
+
+						</article>
+					</div>
+					<!-- end row -->
+
+					<!-- row -->
+
+					<div class="row">
+
+						<article class="col-sm-12 col-md-12 col-lg-6">
+
+							<!-- new widget -->
+							<div class="jarviswidget jarviswidget-color-blueDark" id="" data-widget-editbutton="false" data-widget-fullscreenbutton="false">
+
+								<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+								data-widget-colorbutton="false"
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true"
+								data-widget-sortable="false"
+
+								-->
+
+								<header>
+									<span class="widget-icon"> <i class="fa fa-line-chart txt-color-white"></i> </span>
+									<h2> Current Bandwidth Usage  </h2>
+									
+								</header>
+
+								<!-- widget div-->
+								<div>
+									<!-- widget edit box -->
+									
+									<!-- end widget edit box -->
+
+									<div class="widget-body widget-hide-overflow no-padding">
+										<!-- content goes here -->
+
+										<!-- <div id="donut-graph" class="chart no-padding"></div> -->
+										<!--<div id="pie-chart" class="chart"></div> -->
+										<div id="chart2" style="height: 300px; width: 100%; margin: 5px;"></div>
 
 
 										<!-- end content -->
@@ -887,7 +995,7 @@
 
 								<header>
 									<span class="widget-icon"> <i class="fa fa-map-marker"></i> </span>
-									<h2>Birds Eye</h2>
+									<h2>NAS Location Map</h2>
 									<div class="widget-toolbar hidden-mobile">
 										<span class="onoffswitch-title"><i class="fa fa-location-arrow"></i> Realtime</span>
 										<span class="onoffswitch">
@@ -1475,6 +1583,11 @@
 		<script src="js/plugin/morris/morris.min.js"></script>
 
 		
+		<script type="text/javascript" src="js/plugin/bubble-chart/jquery.jqplot.min.js"></script>
+		<script type="text/javascript" src="js/plugin/bubble-chart/plugins/jqplot.bubbleRenderer.min.js"></script>
+		
+		<script type="text/javascript" src="js/plugin/bubble/canvasjs.min.js"></script>
+		
 
 
 		<script>
@@ -1905,20 +2018,31 @@
 
 					var series = 3;
 					var data_pie = [{
-							label : "Facebook",
+							label : "Industry",
 							color : "#3a5795",
-							data : 66
+							data : 39.9
 						
 					},
 					{
-							label : "Google +",
+							label : "Fiml & Television",
 							color : "#db4437",
-							data : 29
+							data : 33.2
 						
 					},{
-							label : "Form",
+							label : "Sports",
 							color : "#7CBF57",
-							data : 15
+							data : 24.5
+						
+					},{
+							label : "Issues and Cheritable cause",
+							color : "#9CC0E5",
+							data : 2
+						
+					}
+					,{
+							label : "Literature",
+							color : "#9CE5E2",
+							data : 1.5
 						
 					}];
 
@@ -1932,7 +2056,7 @@
 									show : true,
 									radius : 2 / 3,
 									formatter : function(label, series) {
-										return '<div style="font-size:11px;text-align:center;padding:4px;color:white;">' + label + '</div>';
+										return '<div style="font-size:11px;text-align:center;padding:4px;color:white;">' + label +'</div>';
 									},
 									threshold : 0.1
 								}
@@ -2144,6 +2268,126 @@
 				}
 
 				/* end pie chart */
+
+				/*Bubble Chart*/
+					/*var arr = [[11, 123, 1236, "Acura"], [45, 92, 1067, "Alfa Romeo"], 
+								[24, 104, 1176, "AM General"], [50, 23, 610, "Aston Martin Lagonda"], 
+								[18, 17, 539, "Audi"], [7, 89, 864, "BMW"], [2, 13, 1026, "Bugatti"]];
+				 
+				plot1 = $.jqplot('chart1',[arr],{
+				    seriesDefaults:{
+				        renderer: $.jqplot.BubbleRenderer,
+				        rendererOptions: {
+				            bubbleAlpha: 0.6,
+				            highlightAlpha: 0.8
+				        },
+				        shadow: true,
+				        shadowAlpha: 0.05
+				    }
+				}); */
+			window.onload = function () {
+				var chart = new CanvasJS.Chart("chart1",
+			    {
+			      zoomEnabled: true,
+			      animationEnabled: true,
+			      title:{
+			        text: "Popular FQDN"                    
+			      },
+			      axisX: {
+			        title:"% Have Used",
+			        valueFormatString: "0%,.",
+			        maximum: 10,
+			        minimum: 1,
+			        gridThickness: 1,
+					tickThickness: 1,
+			        gridColor: "lightgrey",
+			        tickColor: "lightgrey",
+			        lineThickness: 0,
+			        maximum: 1000,
+			        interval: 100
+			      },
+			      axisY:{
+			        title: "% Daily",              
+			        gridThickness: 1,
+					tickThickness: 1,
+			        gridColor: "lightgrey",
+			        tickColor: "lightgrey",
+			        lineThickness: 0,
+			        valueFormatString:"0%,.",
+			        maximum: 1000,
+			        interval: 200
+			        
+			      },
+
+			      data: [
+			      {        
+			        type: "bubble",     
+			        toolTipContent: "<span style='\"'color: {color};'\"'><strong>{label}</strong></span><br/>",
+			        dataPoints: [
+			        { x: 435, y: 113, z:9.34,  label:"Facebook" },
+			        { x: 817, y: 192, z:4.92,  label:"Linkedin" },
+			        { x: 257, y: 339, z:17,  label:"Google +" },
+			        { x: 599, y: 545, z:4.12,  label:"Whatsapp" },
+			        { x: 185, y: 317, z:14.94,  label:"iTune" },
+			        { x: 978, y: 615, z:22.29,  label:"pintrest" },
+			        { x: 627, y: 474, z:14.61,  label:"Snapchat" },
+			        { x: 373, y: 623, z:0.41,  label:"Tumbler" },
+			        { x: 694, y: 204, z:13.42,  label:"Twitter" },
+			        { x: 821, y: 751, z:4.99,  label:"Apple Facetime" },
+			        { x: 547, y: 308, z:5.07,  label:"Instagram" },
+			        { x: 741, y: 871, z:6.23,  label:"Youtube" },
+			        { x: 338, y: 108, z:8.77,  label:"netflix" },
+			        { x: 164, y: 835, z:7.45,  label:"Skype" },
+			        { x: 495, y: 395, z:8.12,  label:"Beats" },
+			        { x: 843, y: 852, z:1.11,  label:"Kik Messanger" }
+			        
+
+			        ]
+			      }
+			      ]
+			    });  
+			    chart.render();
+		
+    
+   
+					    var linechart = new CanvasJS.Chart("chart2",
+					    {
+					      zoomEnabled: true,
+					      title:{
+					        text: "Current Bandwidth Usage" 
+					      },
+					      animationEnabled: true,
+					      axisX:{
+					        labelAngle: 0
+					      },
+					      
+					      axisY :{
+					        includeZero:false
+					      },
+					      
+					      data: datac  // random generator below
+					      
+					    });
+
+					    linechart.render();
+					  }
+					  
+					   var limit = 500;    //increase number of dataPoints by increasing this
+					   
+					   var y = 100;
+					   var datac = []; var dataSeries = { type: "line" };
+					   var dataPoints = [];
+					   for (var i = 0; i < limit; i += 1) {
+					     y += (Math.random() * 10 - 5);
+					     dataPoints.push({
+					       x: i + limit / 50,
+					       y: y                
+					     });
+					   }
+					   dataSeries.dataPoints = dataPoints;
+					   datac.push(dataSeries);       
+
+				/* End Candel Chart*/
 				
 
 			});

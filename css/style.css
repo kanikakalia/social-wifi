@@ -91,3 +91,6 @@
 .user-line{ position: relative; margin: 20px 0px 0px 0px  !important;}
 .user-div{ position: relative;}
 .user-bar{margin: 20px !important; position: relative;}
+
+.legend{display: none;}
+#pie-chart .chat{height: 270px !important}
